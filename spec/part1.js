@@ -219,7 +219,7 @@
       it('should find 40 in the list', function() {
         var numbers = [10, 20, 30, 40, 50];
 
-        expect(_.indexOf(FILL_ME_IN, 40)).to.equal(3);
+        expect(_.indexOf(numbers, 40)).to.equal(3);
       });
 
       it('should be able to compute indexOf even when the native function is undefined', function() {
@@ -235,15 +235,17 @@
       });
 
       it('returns the first index that the target can be found at when there are multiple matches', function() {
-        var numbers = FILL_ME_IN;
-        expect(FILL_ME_IN).to.equal(1);
+        var numbers = [10, 20, 30, 40, 50];
+        expect(_.indexOf(numbers, 20)).to.equal(1);
       });
     });
 
     describe('filter', function() {
 
       it('should return all even numbers in an array', function() {
-        var isEven = function(num) { return num % 2 === 0; };
+        var isEven = function(num) {
+          return num % 2 === 0; 
+        };
         var evens = _.filter([1, 2, 3, 4, 5, 6], isEven);
 
         expect(evens).to.eql([2, 4, 6]);
@@ -251,7 +253,7 @@
 
       it('should return all odd numbers in an array', function() {
         var isOdd = function(num) { return num % 2 !== 0; };
-        var odds = FILL_ME_IN;
+        var odds = _.filter([1, 3, 8, 5, 4], isOdd);
 
         expect(odds).to.eql([1, 3, 5]);
       });

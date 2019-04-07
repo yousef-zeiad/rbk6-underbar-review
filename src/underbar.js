@@ -38,7 +38,7 @@
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
-    return n === undefined ? array[array.length-1] : array.slice(0,n);
+    return n === undefined ? array[array.length - 1] : array.slice(0, n);
   };
 
   // Call iterator(value, key, collection) for each element of collection.
@@ -47,13 +47,13 @@
   // Note: _.each does not have a return value, but rather simply runs the
   // iterator function over each item in the input collection.
   _.each = function(collection, iterator) {
-    if(Array.isArray(collection)){
-      for(var i=0; i<collection.length; i++){
-        iterator(collection[i], i,collection);
+    if (Array.isArray(collection)) {
+      for (var i = 0; i < collection.length; i++) {
+        iterator(collection[i], i, collection);
       }
-    }else{
-      for(key in collection){
-        iterator(collection[key], key,collection);
+    } else {
+      for (var key in collection) {
+        iterator(collection[key], key, collection );
       }
     }
   };
@@ -77,16 +77,33 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
+    var even = [];
+    _.each(collection, function(col) {
+      test(col) && even.push(col);
+    });
+    return even;
   };
 
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, test) {
+    var even = [];
+    _.each(collection, function(col) {
+      !test(col) && even.push(col);
+    });
+    return even;
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
   };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
+    var obj = [ ];
+    // _.each(array, function(elem) {
+    //  if(elem !== array[elem + 1]){
+
+    //  }
+    // }
+   
   };
 
 
